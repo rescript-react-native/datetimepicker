@@ -1,21 +1,24 @@
+include ReactNative.NativeElement;
+
 // For localeId refer to
 // https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
 type locale = string;
 
-type payload = {
-  .
-  "target": option(int),
-  "timestamp": int,
-};
+type pickerEvent =
+  ReactNative.Event.syntheticEvent({
+    .
+    "target": option(int),
+    "timestamp": int,
+  });
 
 [@react.component] [@bs.module "@react-native-community/datetimepicker"]
 external make:
-  // DateTimePicker props
   (
+    ~ref: ref=?,
+    // DateTimePicker props
     ~mode: [@bs.string] [ | `date | `time | `datetime | `countdown]=?,
     ~display: [@bs.string] [ | `default | `spinner | `calendar | `clock]=?,
-    ~onChange: (ReactNative.Event.syntheticEvent(payload), Js.Date.t) => unit
-                 =?,
+    ~onChange: (pickerEvent, Js.Date.t) => unit=?,
     ~value: Js.Date.t,
     ~maximumDate: Js.Date.t=?,
     ~minimumDate: Js.Date.t=?,

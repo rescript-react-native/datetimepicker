@@ -8,16 +8,16 @@
 
 [ReasonML](https://reasonml.github.io) /
 [BuckleScript](https://bucklescript.github.io) bindings for
-[`@react-native-community/react-native-datetimepicker`](https://github.com/react-native-community/react-native-datetimepicker).
+[`@react-native-community/datetimepicker`](https://github.com/react-native-community/react-native-datetimepicker).
 
-Exposed as `ReactNativeDateTimePicker` module.
+Exposed as the `ReactNativeDateTimePicker` module.
 
-Version x.y.z of `@reason-react-native/datetimepicker` is intended to be compatible with version x.y.z of `@react-native-community/react-native-datetimepicker`.
+Version x.y.z of `@reason-react-native/datetimepicker` is intended to be compatible with version x.y.z of `@react-native-community/datetimepicker`.
 
 ## Installation
 
 When
-[`@react-native-community/something`](`https://github.com/react-native-community/something`)
+[`@react-native-community/datetimepicker`](`https://github.com/react-native-community/datetimepicker`)
 is properly installed & configured by following their installation instructions,
 you can install the bindings:
 
@@ -51,17 +51,18 @@ yarn add @reason-react-native/datetimepicker
 
 Refer to [documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html) for valid values.
 
-#### `payload`
+#### `pickerEvent`
 
 ```reason
-type payload = {
-  .
-  "target": option(int),
-  "timestamp": int
-};
+type pickerEvent =
+  ReactNative.Event.syntheticEvent({
+    .
+    "target": option(int),
+    "timestamp": int,
+  });
 ```
 
-On Android, `target` is undefined, on iOS both keys have `int` values.
+Note that `target` is undefined on Android.
 
 
 ### Props
@@ -70,7 +71,7 @@ All props other than `value` are optional.
 
 #### `value: Js.Date.t`
 
-_required._
+_required_
 
 Current value for time and date.
 
@@ -98,23 +99,22 @@ How the picker is displayed. Note that
 - \`calendar is only for ``mode=`date``
 - \`clock is only for ``mode=`time``
 
-#### `onChange: (ReactNative.Event.syntheticEvent(event), Js.Date.t) => unit`
+#### `onChange: (pickerEvent, Js.Date.t) => unit`
 
-- `nativeEvent` key has value of type [`payload`](#payload)
+- `pickerEvent` has keys `nativeEvent` on both platforms and also `_type` on Android.
 
-- On Android `_type` key takes value `"set"` (when the dialog is closed via "OK") or `"dismissed"` (when the dialog is closed via "cancel").
+- _Android:_ `_type` key takes value `"set"` (when the dialog is closed via "OK") or `"dismissed"` (when the dialog is closed via "cancel").
 
-- On iOS, `_type` key is `undefined`
     
 #### `timeZoneOffsetInMinutes: int`
 
-_iOS only._
+_iOS only_
 
 Allows changing time zone of the date picker. By default device's time zone is used. As an example, set to `60` for GMT+1. 
 
 #### `locale: locale`
 
-_iOS only._
+_iOS only_
 
 Allows changing locale of the component. By default device's locale is used. 
 
@@ -132,7 +132,6 @@ _iOS only._
 
 Interval at which minutes can be selected. Polymorphic constructors are rendered to string (that is `` `_3`` becomes `"3"`).
 
-...
 
 ---
 
