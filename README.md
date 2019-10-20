@@ -35,7 +35,7 @@ yarn add @reason-react-native/datetimepicker
   //...
   "bs-dependencies": [
     "reason-react",
-    "@reason-react-native/react-native",
+    "reason-react-native",
     // ...
 +    "@reason-react-native/datetimepicker"
   ],
