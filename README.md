@@ -1,5 +1,3 @@
----
-
 # `@reason-react-native/datetimepicker`
 
 [![Build Status](https://github.com/reason-react-native/datetimepicker/workflows/Build/badge.svg)](https://github.com/reason-react-native/datetimepicker/actions)
@@ -12,7 +10,8 @@
 
 Exposed as the `ReactNativeDateTimePicker` module.
 
-Version x.y.z of `@reason-react-native/datetimepicker` is intended to be compatible with version x.y.z of `@react-native-community/datetimepicker`.
+Version x.y.z of `@reason-react-native/datetimepicker` is intended to be
+compatible with version x.y.z of `@react-native-community/datetimepicker`.
 
 ## Installation
 
@@ -27,8 +26,8 @@ npm install @reason-react-native/datetimepicker
 yarn add @reason-react-native/datetimepicker
 ```
 
-`@reason-react-native/datetimepicker` should be added to `bs-dependencies` in your
-`bsconfig.json`. For example,
+`@reason-react-native/datetimepicker` should be added to `bs-dependencies` in
+your `bsconfig.json`. For example,
 
 ```diff
 {
@@ -49,7 +48,9 @@ yarn add @reason-react-native/datetimepicker
 
 #### `locale = string`
 
-Refer to [documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html) for valid values.
+Refer to
+[documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
+for valid values.
 
 #### `pickerEvent`
 
@@ -64,7 +65,6 @@ type pickerEvent =
 
 Note that `target` is undefined on Android.
 
-
 ### Props
 
 All props other than `value` are optional.
@@ -77,48 +77,56 @@ Current value for time and date.
 
 #### `maximumDate: Js.Date.t`
 
-Latest date that can be selected. For example `maximumDate = Js.Date.makeWithYMD(2020., 10., 15., ())`. Note that months are numbered from `0`.
+Latest date that can be selected. For example
+`maximumDate = Js.Date.makeWithYMD(2020., 10., 15., ())`. Note that months are
+numbered from `0`.
 
 #### `minimumDate: Js.Date.t`
 
-Earliest date that can be selected. For example `minimumDate = Js.Date.makeWithYMD(2015., 0., 18., ())`. Note that months are numbered from `0`.
+Earliest date that can be selected. For example
+`minimumDate = Js.Date.makeWithYMD(2015., 0., 18., ())`. Note that months are
+numbered from `0`.
 
-#### ``mode: [ | `date | `time | `datetime | `countdown]``
+#### `` mode: [ | `date | `time | `datetime | `countdown] ``
 
 Type of the picker. Note that
 
-- `` `date`` is the default
-- `` `datetime`` and `` `countdown`` are iOS only
+- `` `date `` is the default
+- `` `datetime `` and `` `countdown `` are iOS only
 
-#### ``display: [ | `default | `spinner | `calendar | `clock]``
+#### `` display: [ | `default | `spinner | `calendar | `clock] ``
 
 _Android only_
 
 How the picker is displayed. Note that
 
-- \`calendar is only for ``mode=`date``
-- \`clock is only for ``mode=`time``
+- \`calendar is only for `` mode=`date ``
+- \`clock is only for `` mode=`time ``
 
 #### `onChange: (pickerEvent, Js.Date.t) => unit`
 
-- `pickerEvent` has keys `nativeEvent` on both platforms and also `_type` on Android.
+- `pickerEvent` has keys `nativeEvent` on both platforms and also `_type` on
+  Android.
 
-- _Android:_ `_type` key takes value `"set"` (when the dialog is closed via "OK") or `"dismissed"` (when the dialog is closed via "cancel").
+- _Android:_ `_type` key takes value `"set"` (when the dialog is closed via
+  "OK") or `"dismissed"` (when the dialog is closed via "cancel").
 
-    
 #### `timeZoneOffsetInMinutes: int`
 
 _iOS only_
 
-Allows changing time zone of the date picker. By default device's time zone is used. As an example, set to `60` for GMT+1. 
+Allows changing time zone of the date picker. By default device's time zone is
+used. As an example, set to `60` for GMT+1.
 
 #### `locale: locale`
 
 _iOS only_
 
-Allows changing locale of the component. By default device's locale is used. 
+Allows changing locale of the component. By default device's locale is used.
 
-Refer to [documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html) for valid values.
+Refer to
+[documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
+for valid values.
 
 #### `is24Hour: bool`
 
@@ -126,12 +134,12 @@ _Android only._
 
 Allows changing of the time picker to a 24 hour format. Default is false.
 
-#### ``minuteInterval: [ | `_1 | `_2 | `_3 | `_4 | `_5 | `_6 | `_10 | `_12 | `_15 | `_20 | `_30 ]``
+#### `minuteInterval: [ |`\_1 | `_2 |`\_3 | `_4 |`\_5 | `_6 |`\_10 | `_12 |`\_15 | `_20 |`\_30 ]`
 
 _iOS only._
 
-Interval at which minutes can be selected. Polymorphic constructors are rendered to string (that is `` `_3`` becomes `"3"`).
-
+Interval at which minutes can be selected. Polymorphic constructors are rendered
+to string (that is `` `_3 `` becomes `"3"`).
 
 ---
 
