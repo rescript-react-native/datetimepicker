@@ -1,15 +1,19 @@
 include ReactNative.NativeElement;
-
+open ReactNative;
 // For localeId refer to
 // https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
 type locale = string;
+module PickerEvent = {
+  type payload = {
+    target: option(int),
+    timestamp: int,
+  };
 
-type pickerEvent =
-  ReactNative.Event.syntheticEvent({
-    .
-    "target": option(int),
-    "timestamp": int,
+  include Event.SyntheticEvent({
+    type _payload = payload;
   });
+};
+type pickerEvent = PickerEvent.t;
 
 [@react.component] [@bs.module "@react-native-community/datetimepicker"]
 external make:
@@ -66,7 +70,7 @@ external make:
                           | `imagebutton
                         ]
                           =?,
-    ~accessibilityStates: array(ReactNative.AccessibilityState.t)=?,
+    ~accessibilityStates: array(ReactNative.Accessibility.state)=?,
     ~accessibilityTraits: array(ReactNative.AccessibilityTrait.t)=?,
     ~accessibilityViewIsModal: bool=?,
     ~accessible: bool=?,
