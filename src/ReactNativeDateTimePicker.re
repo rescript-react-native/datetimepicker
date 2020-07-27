@@ -20,15 +20,11 @@ external make:
   (
     ~ref: ref=?,
     // DateTimePicker props
-    ~mode: [@bs.string] [ | `date | `time | `datetime | `countdown]=?,
     ~display: [@bs.string] [ | `default | `spinner | `calendar | `clock]=?,
-    ~onChange: (PickerEvent.t, Js.Date.t) => unit=?,
-    ~value: Js.Date.t,
+    ~is24Hour: bool=?,
+    ~locale: locale=?,
     ~maximumDate: Js.Date.t=?,
     ~minimumDate: Js.Date.t=?,
-    ~timeZoneOffsetInMinutes: int=?,
-    ~locale: locale=?,
-    ~is24Hour: bool=?,
     ~minuteInterval: [@bs.string] [
                        | [@bs.as "1"] `_1
                        | [@bs.as "2"] `_2
@@ -43,6 +39,12 @@ external make:
                        | [@bs.as "30"] `_30
                      ]
                        =?,
+    ~mode: [@bs.string] [ | `date | `time | `datetime | `countdown]=?,
+    ~neutralButtonLabel: string=?,
+    ~onChange: (PickerEvent.t, Js.Date.t) => unit=?,
+    ~textColor: string=?,
+    ~timeZoneOffsetInMinutes: int=?,
+    ~value: Js.Date.t,
     // View props 0.62.0
     ~accessibilityComponentType: [@bs.string] [
                                    | `none
