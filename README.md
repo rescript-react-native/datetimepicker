@@ -52,20 +52,13 @@ Refer to
 [documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
 for valid values.
 
-#### `pickerEvent`
+#### `PickerEvent.t`
+
+Assuming `pickerEvent` is `PickerEvent.t`, you can access
 
 ```reason
-module PickerEvent = {
-  type payload = {
-    target: option(int),
-    timestamp: int,
-  };
-
-  include Event.SyntheticEvent({
-    type _payload = payload;
-  });
-};
-type pickerEvent = PickerEvent.t;
+pickerEvent.nativeEvent.target // => option(int)
+pickerEvent.nativeEvent.timestamp // => int
 ```
 
 Note that `target` is undefined on Android.

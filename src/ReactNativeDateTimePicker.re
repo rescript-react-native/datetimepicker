@@ -1,19 +1,19 @@
-include ReactNative.NativeElement;
 open ReactNative;
+include NativeElement;
+
 // For localeId refer to
 // https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
 type locale = string;
+
 module PickerEvent = {
   type payload = {
     target: option(int),
     timestamp: int,
   };
-
   include Event.SyntheticEvent({
     type _payload = payload;
   });
 };
-type pickerEvent = PickerEvent.t;
 
 [@react.component] [@bs.module "@react-native-community/datetimepicker"]
 external make:
@@ -22,7 +22,7 @@ external make:
     // DateTimePicker props
     ~mode: [@bs.string] [ | `date | `time | `datetime | `countdown]=?,
     ~display: [@bs.string] [ | `default | `spinner | `calendar | `clock]=?,
-    ~onChange: (pickerEvent, Js.Date.t) => unit=?,
+    ~onChange: (PickerEvent.t, Js.Date.t) => unit=?,
     ~value: Js.Date.t,
     ~maximumDate: Js.Date.t=?,
     ~minimumDate: Js.Date.t=?,
@@ -43,7 +43,7 @@ external make:
                        | [@bs.as "30"] `_30
                      ]
                        =?,
-    // View props
+    // View props 0.62.0
     ~accessibilityComponentType: [@bs.string] [
                                    | `none
                                    | `button
@@ -68,14 +68,25 @@ external make:
                           | `header
                           | `summary
                           | `imagebutton
+                          | `article
+                          | `banner
+                          | `complementary
+                          | `contentinfo
+                          | `form
+                          | `list
+                          | `listitem
+                          | `main
+                          | `navigation
+                          | `region
                         ]
                           =?,
-    ~accessibilityStates: array(ReactNative.Accessibility.state)=?,
-    ~accessibilityTraits: array(ReactNative.AccessibilityTrait.t)=?,
+    ~accessibilityState: Accessibility.state=?,
+    ~accessibilityTraits: array(AccessibilityTrait.t)=?,
+    ~accessibilityValue: Accessibility.value=?,
     ~accessibilityViewIsModal: bool=?,
     ~accessible: bool=?,
     ~collapsable: bool=?,
-    ~hitSlop: ReactNative.View.edgeInsets=?,
+    ~hitSlop: View.edgeInsets=?,
     ~importantForAccessibility: [@bs.string] [
                                   | `auto
                                   | `yes
@@ -88,21 +99,21 @@ external make:
     ~needsOffscreenAlphaCompositing: bool=?,
     ~onAccessibilityEscape: unit => unit=?,
     ~onAccessibilityTap: unit => unit=?,
-    ~onLayout: ReactNative.Event.layoutEvent => unit=?,
+    ~onLayout: Event.layoutEvent => unit=?,
     ~onMagicTap: unit => unit=?,
     // Gesture Responder props
-    ~onMoveShouldSetResponder: ReactNative.Event.pressEvent => bool=?,
-    ~onMoveShouldSetResponderCapture: ReactNative.Event.pressEvent => bool=?,
-    ~onResponderEnd: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderGrant: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderMove: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderReject: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderRelease: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderStart: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderTerminate: ReactNative.Event.pressEvent => unit=?,
-    ~onResponderTerminationRequest: ReactNative.Event.pressEvent => bool=?,
-    ~onStartShouldSetResponder: ReactNative.Event.pressEvent => bool=?,
-    ~onStartShouldSetResponderCapture: ReactNative.Event.pressEvent => bool=?,
+    ~onMoveShouldSetResponder: Event.pressEvent => bool=?,
+    ~onMoveShouldSetResponderCapture: Event.pressEvent => bool=?,
+    ~onResponderEnd: Event.pressEvent => unit=?,
+    ~onResponderGrant: Event.pressEvent => unit=?,
+    ~onResponderMove: Event.pressEvent => unit=?,
+    ~onResponderReject: Event.pressEvent => unit=?,
+    ~onResponderRelease: Event.pressEvent => unit=?,
+    ~onResponderStart: Event.pressEvent => unit=?,
+    ~onResponderTerminate: Event.pressEvent => unit=?,
+    ~onResponderTerminationRequest: Event.pressEvent => bool=?,
+    ~onStartShouldSetResponder: Event.pressEvent => bool=?,
+    ~onStartShouldSetResponderCapture: Event.pressEvent => bool=?,
     ~pointerEvents: [@bs.string] [
                       | `auto
                       | `none
@@ -113,8 +124,17 @@ external make:
     ~removeClippedSubviews: bool=?,
     ~renderToHardwareTextureAndroid: bool=?,
     ~shouldRasterizeIOS: bool=?,
-    ~style: ReactNative.Style.t=?,
-    ~testID: string=?
+    ~style: Style.t=?,
+    ~testID: string=?,
+    ~children: React.element=?,
+    // React Native Web Props
+    ~onMouseDown: ReactEvent.Mouse.t => unit=?,
+    ~onMouseEnter: ReactEvent.Mouse.t => unit=?,
+    ~onMouseLeave: ReactEvent.Mouse.t => unit=?,
+    ~onMouseMove: ReactEvent.Mouse.t => unit=?,
+    ~onMouseOver: ReactEvent.Mouse.t => unit=?,
+    ~onMouseOut: ReactEvent.Mouse.t => unit=?,
+    ~onMouseUp: ReactEvent.Mouse.t => unit=?
   ) =>
   React.element =
   "default";
