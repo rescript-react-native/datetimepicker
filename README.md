@@ -55,12 +55,17 @@ for valid values.
 #### `pickerEvent`
 
 ```reason
-type pickerEvent =
-  ReactNative.Event.syntheticEvent({
-    .
-    "target": option(int),
-    "timestamp": int,
+module PickerEvent = {
+  type payload = {
+    target: option(int),
+    timestamp: int,
+  };
+
+  include Event.SyntheticEvent({
+    type _payload = payload;
   });
+};
+type pickerEvent = PickerEvent.t;
 ```
 
 Note that `target` is undefined on Android.
