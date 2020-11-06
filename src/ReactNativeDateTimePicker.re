@@ -20,7 +20,15 @@ external make:
   (
     ~ref: ref=?,
     // DateTimePicker props
-    ~display: [@bs.string] [ | `default | `spinner | `calendar | `clock]=?,
+    ~display: [
+                | `default
+                | `spinner
+                | `calendar
+                | `clock
+                | `compact
+                | `inline
+              ]
+                =?,
     ~is24Hour: bool=?,
     ~locale: locale=?,
     ~maximumDate: Js.Date.t=?,
@@ -39,51 +47,21 @@ external make:
                        | [@bs.as "30"] `_30
                      ]
                        =?,
-    ~mode: [@bs.string] [ | `date | `time | `datetime | `countdown]=?,
+    ~mode: [ | `date | `time | `datetime | `countdown]=?,
     ~neutralButtonLabel: string=?,
     ~onChange: (PickerEvent.t, Js.Date.t) => unit=?,
     ~textColor: string=?,
     ~timeZoneOffsetInMinutes: int=?,
     ~value: Js.Date.t,
-    // View props 0.62.0
-    ~accessibilityComponentType: [@bs.string] [
-                                   | `none
-                                   | `button
-                                   | `radiobutton_checked
-                                   | `radiobutton_unchecked
-                                 ]
-                                   =?,
+    // View props 0.63.0
+    ~accessibilityActions: array(Accessibility.actionInfo)=?,
     ~accessibilityElementsHidden: bool=?,
     ~accessibilityHint: string=?,
     ~accessibilityIgnoresInvertColors: bool=?,
     ~accessibilityLabel: string=?,
-    ~accessibilityLiveRegion: [@bs.string] [ | `none | `polite | `assertive]=?,
-    ~accessibilityRole: [@bs.string] [
-                          | `none
-                          | `button
-                          | `link
-                          | `search
-                          | `image
-                          | `keyboardkey
-                          | `text
-                          | `adjustable
-                          | `header
-                          | `summary
-                          | `imagebutton
-                          | `article
-                          | `banner
-                          | `complementary
-                          | `contentinfo
-                          | `form
-                          | `list
-                          | `listitem
-                          | `main
-                          | `navigation
-                          | `region
-                        ]
-                          =?,
+    ~accessibilityLiveRegion: Accessibility.liveRegion=?,
+    ~accessibilityRole: Accessibility.role=?,
     ~accessibilityState: Accessibility.state=?,
-    ~accessibilityTraits: array(AccessibilityTrait.t)=?,
     ~accessibilityValue: Accessibility.value=?,
     ~accessibilityViewIsModal: bool=?,
     ~accessible: bool=?,
@@ -99,6 +77,7 @@ external make:
                                   =?,
     ~nativeID: string=?,
     ~needsOffscreenAlphaCompositing: bool=?,
+    ~onAccessibilityAction: Accessibility.actionEvent => unit=?,
     ~onAccessibilityEscape: unit => unit=?,
     ~onAccessibilityTap: unit => unit=?,
     ~onLayout: Event.layoutEvent => unit=?,

@@ -15,7 +15,7 @@ compatible with version x.y.z of `@react-native-community/datetimepicker`.
 ## Installation
 
 When
-[`@react-native-community/datetimepicker`](`https://github.com/react-native-community/datetimepicker`)
+[`@react-native-community/datetimepicker`](https://github.com/react-native-community/datetimepicker)
 is properly installed & configured by following their installation instructions,
 you can install the bindings:
 
