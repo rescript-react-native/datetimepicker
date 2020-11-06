@@ -4,8 +4,7 @@
 [![Version](https://img.shields.io/npm/v/@reason-react-native/datetimepicker.svg)](https://www.npmjs.com/@reason-react-native/datetimepicker)
 [![Chat](https://img.shields.io/discord/235176658175262720.svg?logo=discord&colorb=blue)](https://reasonml-community.github.io/reason-react-native/discord/)
 
-[ReasonML](https://reasonml.github.io) /
-[BuckleScript](https://bucklescript.github.io) bindings for
+[ReScript](https://rescript-lang.org) / [Reason](https://reasonml.github.io) bindings for
 [`@react-native-community/datetimepicker`](https://github.com/react-native-community/react-native-datetimepicker).
 
 Exposed as the `ReactNativeDateTimePicker` module.
