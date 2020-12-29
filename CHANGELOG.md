@@ -1,5 +1,9 @@
 # Changelog of `@reason-react-native/datetimepicker`
 
+## 3.0.2 - 2020-12-29
+
+- Fixed minuteInterval prop (number, not string)
+
 ## 3.0.1 - 2020-11-17
 
 Fix npm description
