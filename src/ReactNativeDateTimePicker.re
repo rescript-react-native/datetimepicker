@@ -33,18 +33,18 @@ external make:
     ~locale: locale=?,
     ~maximumDate: Js.Date.t=?,
     ~minimumDate: Js.Date.t=?,
-    ~minuteInterval: [@bs.string] [
-                       | [@bs.as "1"] `_1
-                       | [@bs.as "2"] `_2
-                       | [@bs.as "3"] `_3
-                       | [@bs.as "4"] `_4
-                       | [@bs.as "5"] `_5
-                       | [@bs.as "6"] `_6
-                       | [@bs.as "10"] `_10
-                       | [@bs.as "12"] `_12
-                       | [@bs.as "15"] `_15
-                       | [@bs.as "20"] `_20
-                       | [@bs.as "30"] `_30
+    ~minuteInterval: [@bs.int] [
+                       | [@bs.as 1] `_1
+                       | [@bs.as 2] `_2
+                       | [@bs.as 3] `_3
+                       | [@bs.as 4] `_4
+                       | [@bs.as 5] `_5
+                       | [@bs.as 6] `_6
+                       | [@bs.as 10] `_10
+                       | [@bs.as 12] `_12
+                       | [@bs.as 15] `_15
+                       | [@bs.as 20] `_20
+                       | [@bs.as 30] `_30
                      ]
                        =?,
     ~mode: [ | `date | `time | `datetime | `countdown]=?,
