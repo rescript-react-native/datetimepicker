@@ -1,4 +1,4 @@
-# Changelog of `@reason-react-native/datetimepicker`
+# Changelog of `@rescript-react-native/datetimepicker`
 
 ## 3.0.2 - 2020-12-29
 
@@ -11,12 +11,12 @@ Fix npm description
 ## 3.0.0 - 2020-11-06
 
 - Adjust to match react-native-datetimepicker 3.0.0
-- Adjust to match with reason-react-native 0.63
+- Adjust to match with rescript-react-native 0.63
 
 ## 2.6.0 - 2020-07-27
 
 - Adjust to match react-native-datetimepicker 2.6.0
-- Adjust to match with reason-react-native 0.62
+- Adjust to match with rescript-react-native 0.62
 
 ## 2.1.0 - 2019-10-05
 

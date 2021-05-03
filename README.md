@@ -1,15 +1,15 @@
-# `@reason-react-native/datetimepicker`
+# `@rescript-react-native/datetimepicker`
 
-[![Build Status](https://github.com/reason-react-native/datetimepicker/workflows/Build/badge.svg)](https://github.com/reason-react-native/datetimepicker/actions)
-[![Version](https://img.shields.io/npm/v/@reason-react-native/datetimepicker.svg)](https://www.npmjs.com/@reason-react-native/datetimepicker)
-[![Chat](https://img.shields.io/discord/235176658175262720.svg?logo=discord&colorb=blue)](https://reasonml-community.github.io/reason-react-native/discord/)
+[![Build Status](https://github.com/rescript-react-native/datetimepicker/workflows/Build/badge.svg)](https://github.com/rescript-react-native/datetimepicker/actions)
+[![Version](https://img.shields.io/npm/v/@rescript-react-native/datetimepicker.svg)](https://www.npmjs.com/@rescript-react-native/datetimepicker)
+[![ReScript Forum](https://img.shields.io/discourse/posts?color=e6484f&label=ReScript%20Forum&server=https%3A%2F%2Fforum.rescript-lang.org)](https://forum.rescript-lang.org/)
 
-[ReScript](https://rescript-lang.org) / [Reason](https://reasonml.github.io) bindings for
+[ReScript](https://rescript-lang.org) bindings for
 [`@react-native-community/datetimepicker`](https://github.com/react-native-community/react-native-datetimepicker).
 
 Exposed as the `ReactNativeDateTimePicker` module.
 
-Version x.y.z of `@reason-react-native/datetimepicker` is intended to be
+Version x.y.z of `@rescript-react-native/datetimepicker` is intended to be
 compatible with version x.y.z of `@react-native-community/datetimepicker`.
 
 ## Installation
@@ -20,22 +20,22 @@ is properly installed & configured by following their installation instructions,
 you can install the bindings:
 
 ```console
-npm install @reason-react-native/datetimepicker
+npm install @rescript-react-native/datetimepicker
 # or
-yarn add @reason-react-native/datetimepicker
+yarn add @rescript-react-native/datetimepicker
 ```
 
-`@reason-react-native/datetimepicker` should be added to `bs-dependencies` in
+`@rescript-react-native/datetimepicker` should be added to `bs-dependencies` in
 your `bsconfig.json`. For example,
 
 ```diff
 {
   //...
   "bs-dependencies": [
-    "reason-react",
-    "reason-react-native",
+    "@rescript/react",
+    "rescript-react-native",
     // ...
-+    "@reason-react-native/datetimepicker"
++    "@rescript-react-native/datetimepicker"
   ],
   //...
 }
@@ -55,7 +55,7 @@ for valid values.
 
 Assuming `pickerEvent` is `PickerEvent.t`, you can access
 
-```reason
+```rescript
 pickerEvent.nativeEvent.target // => option(int)
 pickerEvent.nativeEvent.timestamp // => int
 ```
@@ -147,10 +147,10 @@ releases.
 
 ## Contribute
 
-Read the [contribution guidelines](https://github.com/reason-react-native/.github/blob/master/CONTRIBUTING.md) before contributing.
+Read the [contribution guidelines](https://github.com/rescript-react-native/.github/blob/master/CONTRIBUTING.md) before contributing.
 
 ## Code of Conduct
 
 We want this community to be friendly and respectful to each other. Please read
-[our full code of conduct](https://github.com/reason-react-native/.github/blob/master/CODE_OF_CONDUCT.md) so that you can understand what
+[our full code of conduct](https://github.com/rescript-react-native/.github/blob/master/CODE_OF_CONDUCT.md) so that you can understand what
 actions will and will not be tolerated.
