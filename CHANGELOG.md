@@ -1,5 +1,9 @@
 # Changelog of `@rescript-react-native/datetimepicker`
 
+## 3.0.3 - 2021-05-03
+
+ReScript
+
 ## 3.0.2 - 2020-12-29
 
 - Fixed minuteInterval prop (number, not string)
